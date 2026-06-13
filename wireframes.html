@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLEM LTD — Website Wireframes (Brainstorm)</title>
+<style>
+  :root{
+    --paper:#ffffff; --canvas:#eceef1; --box:#f4f5f7; --box2:#e4e7eb;
+    --line:#b9c0c8; --line2:#cfd5db; --ink:#2b3138; --muted:#7b848e; --faint:#aab2bb;
+    --note:#fff7e6; --note-line:#e8c97a; --note-ink:#8a6d2f;
+    --tag:#dfe4ea;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--canvas);font-family:var(--sans);color:var(--ink);line-height:1.5;padding-bottom:120px}
+
+  /* ---- doc header ---- */
+  .dochead{background:var(--ink);color:#fff;padding:34px 40px}
+  .dochead h1{font-size:24px;font-weight:700;letter-spacing:.3px}
+  .dochead p{color:#b9c0c8;font-size:14px;margin-top:6px;max-width:70ch}
+  .dochead .meta{margin-top:14px;font-family:var(--mono);font-size:12px;color:#8b949e}
+
+  /* ---- sticky page nav ---- */
+  nav.jump{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);padding:12px 40px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  nav.jump b{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-right:6px}
+  nav.jump a{font-size:13px;color:var(--ink);text-decoration:none;padding:5px 11px;border:1px solid var(--line);border-radius:6px;background:var(--box)}
+  nav.jump a:hover{background:var(--box2)}
+
+  /* ---- frame scaffolding ---- */
+  .wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+  .screen{margin-top:48px}
+  .screen-label{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .screen-label .num{font-family:var(--mono);font-size:13px;background:var(--ink);color:#fff;width:26px;height:26px;border-radius:6px;display:grid;place-items:center;flex:none}
+  .screen-label h2{font-size:18px;font-weight:700}
+  .screen-label span{font-size:13px;color:var(--muted)}
+
+  .frame{background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+  .browser-bar{background:var(--box2);border-bottom:1px solid var(--line);padding:9px 14px;display:flex;align-items:center;gap:7px}
+  .browser-bar i{width:10px;height:10px;border-radius:50%;background:var(--line);display:block}
+  .browser-bar .url{flex:1;margin-left:10px;background:var(--paper);border:1px solid var(--line2);border-radius:5px;padding:4px 10px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+
+  .canvas{padding:0}
+
+  /* wireframe primitives */
+  .ph{background:repeating-linear-gradient(45deg,var(--box) 0 10px,var(--box2) 10px 20px);border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:var(--mono);font-size:12px;text-align:center;border-radius:6px}
+  .imgph{background:var(--box);border:1px dashed var(--line);position:relative;display:flex;align-items:center;justify-content:center;color:var(--faint);font-family:var(--mono);font-size:11px;border-radius:6px;overflow:hidden}
+  .imgph::before,.imgph::after{content:"";position:absolute;inset:0;border-top:1px solid var(--line2)}
+  .imgph::before{transform:rotate(0);background:
+    linear-gradient(to top right,transparent calc(50% - 1px),var(--line2),transparent calc(50% + 1px)),
+    linear-gradient(to top left,transparent calc(50% - 1px),var(--line2),transparent calc(50% + 1px))}
+  .imgph span{position:relative;z-index:1;background:var(--box);padding:2px 8px;border-radius:4px}
+
+  .bar{height:11px;background:var(--box2);border-radius:3px}
+  .bar.s{width:40%} .bar.m{width:65%} .bar.l{width:90%}
+  .bar.dark{background:var(--line)}
+  .txtlines{display:flex;flex-direction:column;gap:8px}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;border:1.5px solid var(--ink);border-radius:6px;padding:9px 18px;font-size:13px;font-weight:600;color:var(--ink);background:var(--paper)}
+  .btn.solid{background:var(--ink);color:#fff}
+  .btn.sm{padding:6px 12px;font-size:12px}
+
+  .row{display:flex;gap:18px}
+  .col{flex:1}
+
+  /* page header inside frame */
+  .pgnav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid var(--line2)}
+  .pgnav .logo{display:flex;align-items:center;gap:10px;font-weight:700}
+  .pgnav .logo .mark{width:30px;height:30px;border:1.5px solid var(--ink);border-radius:6px;display:grid;place-items:center;font-family:var(--mono);font-size:11px}
+  .pgnav .links{display:flex;gap:18px;font-size:13px;color:var(--muted)}
+  .pgnav .links .active{color:var(--ink);font-weight:600;border-bottom:2px solid var(--ink);padding-bottom:2px}
+
+  .section{padding:28px 24px;border-bottom:1px solid var(--box2)}
+  .section:last-child{border-bottom:none}
+  .sec-tag{font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--faint);margin-bottom:12px;display:inline-block;background:var(--box);padding:2px 7px;border-radius:4px}
+
+  .grid{display:grid;gap:14px}
+  .g2{grid-template-columns:1fr 1fr} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+
+  .pcard{border:1px solid var(--line2);border-radius:8px;overflow:hidden;background:var(--paper)}
+  .pcard .body{padding:12px}
+  .pcard .body .bar{margin-bottom:8px}
+
+  .statbox{border:1px solid var(--line2);border-radius:8px;padding:16px;text-align:center;background:var(--box)}
+  .statbox .big{font-family:var(--mono);font-size:22px;font-weight:700}
+  .statbox .lbl{font-size:11px;color:var(--muted);margin-top:4px}
+
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px;font-weight:600}
+  .field .input{height:38px;border:1px solid var(--line);border-radius:6px;background:var(--box);display:flex;align-items:center;padding:0 12px;font-size:12px;color:var(--faint);font-family:var(--mono)}
+  .field .input.area{height:90px;align-items:flex-start;padding-top:10px}
+  .checkrow{display:flex;flex-wrap:wrap;gap:8px}
+  .chk{display:flex;align-items:center;gap:6px;border:1px solid var(--line2);border-radius:6px;padding:6px 10px;font-size:12px;color:var(--muted)}
+  .chk i{width:14px;height:14px;border:1.5px solid var(--line);border-radius:3px;display:block}
+
+  /* annotation callouts */
+  .note{background:var(--note);border:1px solid var(--note-line);border-left:3px solid var(--note-line);border-radius:7px;padding:12px 14px;margin-top:12px;font-size:13px;color:var(--note-ink)}
+  .note b{color:#6f5012}
+  .note::before{content:"✎ note";font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:5px;color:#b08a2e}
+
+  .footwf{background:var(--ink);color:#aeb6bf;padding:24px;font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .footwf .bar{background:#3a424b}
+
+  /* brand suggestion swatches */
+  .palette{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+  .opt{flex:1;min-width:240px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--paper)}
+  .opt .swatches{display:flex;height:64px}
+  .opt .swatches div{flex:1}
+  .opt .cap{padding:12px 14px}
+  .opt .cap h4{font-size:14px;margin-bottom:4px}
+  .opt .cap p{font-size:12px;color:var(--muted)}
+  .opt .cap code{font-family:var(--mono);font-size:11px;background:var(--box);padding:1px 5px;border-radius:3px}
+  .logoidea{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
+  .logoidea .li{flex:1;min-width:200px;border:1px dashed var(--line);border-radius:8px;padding:14px;background:var(--box);font-size:13px}
+  .logoidea .li b{display:block;margin-bottom:4px}
+</style>
+</head>
+<body>
+
+<div class="dochead">
+  <h1>CLEM LTD — Website Wireframes</h1>
+  <p>Low-fidelity layout brainstorm. Grayscale and placeholders on purpose — we're agreeing on structure, content blocks and flow before any visual design, photography or branding. Boxes with an ✕ are where real product photos go.</p>
+  <div class="meta">v1 · brainstorm · 5 screens + brand direction</div>
+</div>
+
+<nav class="jump">
+  <b>Jump to</b>
+  <a href="#home">1 · Home</a>
+  <a href="#about">2 · About</a>
+  <a href="#products">3 · Products</a>
+  <a href="#proforma">4 · Request Proforma</a>
+  <a href="#contact">5 · Contact</a>
+  <a href="#brand">★ Brand direction</a>
+</nav>
+
+<div class="wrap">
+
+  <!-- ============ 1. HOME ============ -->
+  <div class="screen" id="home">
+    <div class="screen-label"><span class="num">1</span><h2>Home / Landing</h2><span>— first impression, trust, product overview, clear path to a proforma</span></div>
+    <div class="frame">
+      <div class="browser-bar"><i></i><i></i><i></i><div class="url">clemltd.store</div></div>
+      <div class="canvas">
+
+        <!-- nav -->
+        <div class="pgnav">
+          <div class="logo"><span class="mark">LOGO</span> CLEM LTD</div>
+          <div class="links"><span class="active">Home</span><span>About</span><span>Products</span><span>Request Proforma</span><span>Contact</span></div>
+          <span class="btn sm solid">Request Proforma</span>
+        </div>
+
+        <!-- hero -->
+        <div class="section" style="display:flex;gap:28px;align-items:center">
+          <div style="flex:1.1">
+            <span class="sec-tag">Hero</span>
+            <div class="txtlines" style="gap:12px">
+              <div class="bar dark l" style="height:24px"></div>
+              <div class="bar dark m" style="height:24px"></div>
+              <div class="bar s"></div>
+              <div class="bar m"></div>
+              <div style="display:flex;gap:12px;margin-top:8px"><span class="btn solid">Request a Proforma</span><span class="btn">View Products</span></div>
+            </div>
+          </div>
+          <div class="imgph" style="flex:1;height:230px"><span>HERO IMAGE — warehouse / steel stock</span></div>
+        </div>
+
+        <!-- trust bar -->
+        <div class="section">
+          <span class="sec-tag">Trust bar — the key numbers</span>
+          <div class="grid g4">
+            <div class="statbox"><div class="big">2015</div><div class="lbl">Established · Kigali, Rwanda</div></div>
+            <div class="statbox"><div class="big">2,000+</div><div class="lbl">Customers served</div></div>
+            <div class="statbox"><div class="big">4</div><div class="lbl">Sourcing countries</div></div>
+            <div class="statbox"><div class="big">★</div><div class="lbl">Official rep — Steel &amp; Tube Industries (UG)</div></div>
+          </div>
+        </div>
+
+        <!-- product preview -->
+        <div class="section">
+          <span class="sec-tag">Products preview — 7 categories</span>
+          <div class="grid g4">
+            <div class="pcard"><div class="imgph" style="height:90px"><span>✕</span></div><div class="body"><div class="bar m"></div></div></div>
+            <div class="pcard"><div class="imgph" style="height:90px"><span>✕</span></div><div class="body"><div class="bar m"></div></div></div>
+            <div class="pcard"><div class="imgph" style="height:90px"><span>✕</span></div><div class="body"><div class="bar m"></div></div></div>
+            <div class="pcard"><div class="imgph" style="height:90px"><span>✕</span></div><div class="body"><div class="bar m"></div></div></div>
+          </div>
+          <div style="text-align:center;margin-top:14px"><span class="btn sm">See all products →</span></div>
+        </div>
+
+        <!-- sourcing/partners -->
+        <div class="section">
+          <span class="sec-tag">Sourcing &amp; partners</span>
+          <div class="row">
+            <div class="col txtlines"><div class="bar dark m" style="height:16px"></div><div class="bar l"></div><div class="bar l"></div><div class="bar s"></div></div>
+            <div class="col"><div class="grid g4" style="gap:8px">
+              <div class="ph" style="height:46px">🇨🇳 China</div><div class="ph" style="height:46px">🇹🇿 Tanzania</div><div class="ph" style="height:46px">🇺🇬 Uganda</div><div class="ph" style="height:46px">🇷🇼 Rwanda</div>
+            </div></div>
+          </div>
+        </div>
+
+        <!-- CTA band -->
+        <div class="section" style="background:var(--box);text-align:center">
+          <div class="bar dark m" style="height:18px;margin:0 auto 12px"></div>
+          <span class="btn solid">Request a Proforma</span>
+        </div>
+
+        <!-- footer -->
+        <div class="footwf">
+          <div style="flex:1"><div class="bar m" style="margin-bottom:8px"></div><div class="bar s"></div></div>
+          <div style="flex:1"><div class="bar s" style="margin-bottom:8px"></div><div class="bar m"></div></div>
+          <div style="flex:1"><div class="bar s" style="margin-bottom:8px"></div><div class="bar m"></div></div>
+        </div>
+
+      </div>
+    </div>
+    <div class="note">Every page keeps a persistent <b>"Request Proforma"</b> button in the header and at least one CTA band, so a visitor can start an enquiry from anywhere. The trust bar carries the four facts you gave: 2015, 2,000+ customers, 4 sourcing countries, and the Steel &amp; Tube Industries representation.</div>
+  </div>
+
+  <!-- ============ 2. ABOUT ============ -->
+  <div class="screen" id="about">
+    <div class="screen-label"><span class="num">2</span><h2>About</h2><span>— story, credibility, the Steel &amp; Tube Industries partnership</span></div>
+    <div class="frame">
+      <div class="browser-bar"><i></i><i></i><i></i><div class="url">clemltd.store/about</div></div>
+      <div class="canvas">
+        <div class="pgnav"><div class="logo"><span class="mark">LOGO</span> CLEM LTD</div><div class="links"><span>Home</span><span class="active">About</span><span>Products</span><span>Request Proforma</span><span>Contact</span></div><span class="btn sm solid">Request Proforma</span></div>
+
+        <div class="section" style="display:flex;gap:28px;align-items:center">
+          <div style="flex:1">
+            <span class="sec-tag">Our story</span>
+            <div class="txtlines"><div class="bar dark m" style="height:20px"></div><div class="bar l"></div><div class="bar l"></div><div class="bar m"></div><div class="bar l"></div><div class="bar s"></div></div>
+          </div>
+          <div class="imgph" style="flex:1;height:200px"><span>✕ Team / premises photo</span></div>
+        </div>
+
+        <div class="section">
+          <span class="sec-tag">By the numbers</span>
+          <div class="grid g4">
+            <div class="statbox"><div class="big">2015</div><div class="lbl">Founded in Kigali</div></div>
+            <div class="statbox"><div class="big">2,000+</div><div class="lbl">Customers</div></div>
+            <div class="statbox"><div class="big">10 yrs</div><div class="lbl">In the market</div></div>
+            <div class="statbox"><div class="big">4</div><div class="lbl">Source countries</div></div>
+          </div>
+        </div>
+
+        <div class="section" style="background:var(--box)">
+          <span class="sec-tag">Featured partnership</span>
+          <div class="row" style="align-items:center">
+            <div class="imgph" style="width:160px;height:90px"><span>✕ Steel &amp; Tube logo</span></div>
+            <div class="col txtlines"><div class="bar dark m" style="height:16px"></div><div class="bar l"></div><div class="bar m"></div></div>
+          </div>
+          <div class="note">Call-out box: <b>"Official representative of Steel and Tube Industries Ltd — Uganda."</b> This is a credibility anchor; give it its own banded section.</div>
+        </div>
+
+        <div class="section">
+          <span class="sec-tag">Where we source from</span>
+          <div class="grid g4"><div class="ph" style="height:60px">🇨🇳 China</div><div class="ph" style="height:60px">🇹🇿 Tanzania</div><div class="ph" style="height:60px">🇺🇬 Uganda</div><div class="ph" style="height:60px">🇷🇼 Rwanda</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 3. PRODUCTS ============ -->
+  <div class="screen" id="products">
+    <div class="screen-label"><span class="num">3</span><h2>Products</h2><span>— the 7 product lines, each with a photo and its own "Request Proforma"</span></div>
+    <div class="frame">
+      <div class="browser-bar"><i></i><i></i><i></i><div class="url">clemltd.store/products</div></div>
+      <div class="canvas">
+        <div class="pgnav"><div class="logo"><span class="mark">LOGO</span> CLEM LTD</div><div class="links"><span>Home</span><span>About</span><span class="active">Products</span><span>Request Proforma</span><span>Contact</span></div><span class="btn sm solid">Request Proforma</span></div>
+
+        <div class="section">
+          <span class="sec-tag">Product catalogue — 7 items</span>
+          <div class="grid g3">
+            <!-- 1 -->
+            <div class="pcard"><div class="imgph" style="height:130px"><span>✕ Steel Sheets</span></div><div class="body"><div class="bar dark m" style="margin-bottom:6px"></div><div class="bar l"></div><div class="bar s" style="margin:8px 0 10px"></div><span class="btn sm">Request Proforma</span></div></div>
+            <!-- 2 -->
+            <div class="pcard"><div class="imgph" style="height:130px"><span>✕ Door Frames</span></div><div class="body"><div class="bar dark m" style="margin-bottom:6px"></div><div class="bar l"></div><div class="bar s" style="margin:8px 0 10px"></div><span class="btn sm">Request Proforma</span></div></div>
+            <!-- 3 -->
+            <div class="pcard"><div class="imgph" style="height:130px"><span>✕ Hollow Sections</span></div><div class="body"><div class="bar dark m" style="margin-bottom:6px"></div><div class="bar l"></div><div class="bar s" style="margin:8px 0 10px"></div><span class="btn sm">Request Proforma</span></div></div>
+            <!-- 4 -->
+            <div class="pcard"><div class="imgph" style="height:130px"><span>✕ Steel Bars (Deformed)</span></div><div class="body"><div class="bar dark m" style="margin-bottom:6px"></div><div class="bar l"></div><div class="bar s" style="margin:8px 0 10px"></div><span class="btn sm">Request Proforma</span></div></div>
+            <!-- 5 -->
+            <div class="pcard"><div class="imgph" style="height:130px"><span>✕ Bottle Profiles</span></div><div class="body"><div class="bar dark m" style="margin-bottom:6px"></div><div class="bar l"></div><div class="bar s" style="margin:8px 0 10px"></div><span class="btn sm">Request Proforma</span></div></div>
+            <!-- 6 -->
+            <div class="pcard"><div class="imgph" style="height:130px"><span>✕ Rovers (Doors &amp; Windows)</span></div><div class="body"><div class="bar dark m" style="margin-bottom:6px"></div><div class="bar l"></div><div class="bar s" style="margin:8px 0 10px"></div><span class="btn sm">Request Proforma</span></div></div>
+            <!-- 7 -->
+            <div class="pcard"><div class="imgph" style="height:130px"><span>✕ Metal Gutters</span></div><div class="body"><div class="bar dark m" style="margin-bottom:6px"></div><div class="bar l"></div><div class="bar s" style="margin:8px 0 10px"></div><span class="btn sm">Request Proforma</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="note">Each card's <b>Request Proforma</b> button jumps to the proforma form with that product pre-selected. Need good, consistent product photography — ideally shot on the same background, or sourced from Steel &amp; Tube Industries' catalogue. Optional: a product-detail page per item (specs, sizes/gauges) if you want more depth later.</div>
+  </div>
+
+  <!-- ============ 4. REQUEST PROFORMA ============ -->
+  <div class="screen" id="proforma">
+    <div class="screen-label"><span class="num">4</span><h2>Request Proforma</h2><span>— the core conversion: an enquiry that lands in your inbox as an email</span></div>
+    <div class="frame">
+      <div class="browser-bar"><i></i><i></i><i></i><div class="url">clemltd.store/request-proforma</div></div>
+      <div class="canvas">
+        <div class="pgnav"><div class="logo"><span class="mark">LOGO</span> CLEM LTD</div><div class="links"><span>Home</span><span>About</span><span>Products</span><span class="active">Request Proforma</span><span>Contact</span></div><span class="btn sm solid">Request Proforma</span></div>
+
+        <div class="section" style="display:flex;gap:32px">
+          <div style="flex:1.2">
+            <span class="sec-tag">Enquiry form</span>
+            <div class="row"><div class="field col"><label>Full name *</label><div class="input">e.g. Jean Bosco</div></div><div class="field col"><label>Company</label><div class="input">Optional</div></div></div>
+            <div class="row"><div class="field col"><label>Email *</label><div class="input">you@company.com</div></div><div class="field col"><label>Phone / WhatsApp</label><div class="input">+250 …</div></div></div>
+            <div class="field"><label>Products of interest *</label>
+              <div class="checkrow">
+                <span class="chk"><i></i> Steel Sheets</span><span class="chk"><i></i> Door Frames</span><span class="chk"><i></i> Hollow Sections</span><span class="chk"><i></i> Steel Bars</span><span class="chk"><i></i> Bottle Profiles</span><span class="chk"><i></i> Rovers</span><span class="chk"><i></i> Metal Gutters</span>
+              </div>
+            </div>
+            <div class="row"><div class="field col"><label>Quantity / size</label><div class="input">e.g. 200 sheets, 2mm</div></div><div class="field col"><label>Delivery location</label><div class="input">Kigali / district</div></div></div>
+            <div class="field"><label>Message</label><div class="input area">Any specs, gauges, deadlines…</div></div>
+            <span class="btn solid">Send Proforma Request</span>
+          </div>
+          <div style="flex:.8">
+            <span class="sec-tag">Side panel — reassurance</span>
+            <div class="txtlines"><div class="bar dark s" style="height:14px"></div><div class="bar l"></div><div class="bar m"></div></div>
+            <div style="margin-top:18px" class="txtlines"><div class="ph" style="height:40px">⏱ We reply within 24 hrs</div><div class="ph" style="height:40px">✉ info@clemltd.store</div><div class="ph" style="height:40px">📞 +250 …</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="note"><b>Email behaviour (the key requirement):</b> on submit, the site composes and sends an email <b>To: info@clemltd.store</b> with <b>BCC: clemltd1@gmail.com</b>, subject like <code>Proforma request — [name] — [products]</code>, body = all form fields. The visitor sees a "Thank you, we'll reply within 24 hrs" confirmation. A static site can't send email by itself — this needs either a form service (e.g. Formspree/Web3Forms) or a tiny serverless function. We'll decide the exact mechanism at build; the BCC and reply-to are configurable there.</div>
+  </div>
+
+  <!-- ============ 5. CONTACT ============ -->
+  <div class="screen" id="contact">
+    <div class="screen-label"><span class="num">5</span><h2>Contact</h2><span>— location, channels, map</span></div>
+    <div class="frame">
+      <div class="browser-bar"><i></i><i></i><i></i><div class="url">clemltd.store/contact</div></div>
+      <div class="canvas">
+        <div class="pgnav"><div class="logo"><span class="mark">LOGO</span> CLEM LTD</div><div class="links"><span>Home</span><span>About</span><span>Products</span><span>Request Proforma</span><span class="active">Contact</span></div><span class="btn sm solid">Request Proforma</span></div>
+        <div class="section" style="display:flex;gap:28px">
+          <div style="flex:1">
+            <span class="sec-tag">Reach us</span>
+            <div class="txtlines" style="gap:14px"><div class="ph" style="height:44px;justify-content:flex-start;padding-left:14px">📍 Address — Kigali, Rwanda</div><div class="ph" style="height:44px;justify-content:flex-start;padding-left:14px">✉ info@clemltd.store</div><div class="ph" style="height:44px;justify-content:flex-start;padding-left:14px">📞 / WhatsApp +250 …</div><div class="ph" style="height:44px;justify-content:flex-start;padding-left:14px">🕒 Mon–Sat working hours</div></div>
+          </div>
+          <div class="imgph" style="flex:1.3;height:230px"><span>✕ Google Map embed — Kigali location</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="note">Footer (on every page) repeats address, email, quick links and source-country list. Confirm the physical address, phone number and working hours so we can fill these in.</div>
+  </div>
+
+  <!-- ============ BRAND DIRECTION ============ -->
+  <div class="screen" id="brand">
+    <div class="screen-label"><span class="num">★</span><h2>Brand direction — suggestions</h2><span>— since there's no logo or colours yet, here are starting points to react to</span></div>
+
+    <div class="frame" style="padding:24px">
+      <span class="sec-tag">Colour palette options</span>
+      <div class="palette">
+        <div class="opt">
+          <div class="swatches"><div style="background:#1f3a5f"></div><div style="background:#2e5984"></div><div style="background:#e08a1e"></div><div style="background:#f4f6f8"></div></div>
+          <div class="cap"><h4>A · Steel Blue + Amber</h4><p>Industrial, trustworthy, distinctly "metal". Blue = strength/reliability, amber = energy &amp; the CTA colour.</p><p style="margin-top:6px"><code>#1F3A5F</code> <code>#2E5984</code> <code>#E08A1E</code></p></div>
+        </div>
+        <div class="opt">
+          <div class="swatches"><div style="background:#222831"></div><div style="background:#393e46"></div><div style="background:#c0392b"></div><div style="background:#f2f2f2"></div></div>
+          <div class="cap"><h4>B · Charcoal + Red</h4><p>Bold and strong — reads like heavy industry / construction. Red drives attention to the proforma CTA.</p><p style="margin-top:6px"><code>#222831</code> <code>#393E46</code> <code>#C0392B</code></p></div>
+        </div>
+        <div class="opt">
+          <div class="swatches"><div style="background:#0f3d3e"></div><div style="background:#1d6f6f"></div><div style="background:#d9a425"></div><div style="background:#f5f4ef"></div></div>
+          <div class="cap"><h4>C · Deep Teal + Gold</h4><p>More premium / distinctive — stands apart from typical hardware suppliers while still feeling solid.</p><p style="margin-top:6px"><code>#0F3D3E</code> <code>#1D6F6F</code> <code>#D9A425</code></p></div>
+        </div>
+      </div>
+
+      <div style="margin-top:24px"><span class="sec-tag">Logo concepts (wordmark + simple mark)</span>
+        <div class="logoidea">
+          <div class="li"><b>“CLEM” bold wordmark</b>Strong geometric sans (e.g. a condensed industrial face), with “LTD” small beneath. Cheapest, scales everywhere.</div>
+          <div class="li"><b>Mark: C + steel bar</b>A “C” formed from a folded steel sheet / I-beam cross-section. Hints at the product without being literal.</div>
+          <div class="li"><b>Mark: hollow section</b>A square/rectangular tube outline (nod to hollow sections &amp; door frames) framing the initials.</div>
+        </div>
+      </div>
+
+      <div class="note">My recommendation to start: <b>Option A (Steel Blue + Amber)</b> — it photographs well behind real steel imagery and the amber gives a clear, energetic colour for every "Request Proforma" button. Pick a palette + a logo direction and I'll carry it through the high-fidelity build. We can also commission a proper logo later; a clean wordmark is enough to launch.</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
