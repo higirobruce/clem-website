@@ -44,16 +44,16 @@
 <section class="hero">
   <div class="container">
     <div class="hero-copy">
-      <p class="eyebrow" style="color:var(--amber)">Steel suppliers · Kigali, Rwanda · since 2015</p>
-      <h1>Quality steel, <span class="hl">sourced and delivered</span> across Rwanda.</h1>
-      <p class="sub">For over a decade, CLEM LTD has supplied builders, fabricators and traders with dependable steel products — backed by trusted manufacturers across China, Tanzania, Uganda and Rwanda.</p>
+      <p class="eyebrow" style="color:var(--amber)" data-bind="hero.eyebrow">Steel suppliers · Kigali, Rwanda · since 2015</p>
+      <h1><span data-bind="hero.headingLead">Quality steel, </span><span class="hl" data-bind="hero.headingHighlight">sourced and delivered</span><span data-bind="hero.headingTail"> across Rwanda.</span></h1>
+      <p class="sub" data-bind="hero.subtext">For over a decade, CLEM LTD has supplied builders, fabricators and traders with dependable steel products — backed by trusted manufacturers across China, Tanzania, Uganda and Rwanda.</p>
       <div class="hero-cta">
-        <a href="#proforma" class="btn btn-primary">Request a Proforma
+        <a href="#proforma" class="btn btn-primary"><span data-bind="hero.primaryCta">Request a Proforma</span>
           <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="#products" class="btn btn-ghost">View Products</a>
+        <a href="#products" class="btn btn-ghost" data-bind="hero.secondaryCta">View Products</a>
       </div>
-      <div class="hero-badges">
+      <div class="hero-badges" id="heroBadges">
         <div class="b"><span class="n">2015</span><span class="l">Established in Kigali</span></div>
         <div class="b"><span class="n">2,000+</span><span class="l">Customers served</span></div>
         <div class="b"><span class="n">4</span><span class="l">Sourcing countries</span></div>
@@ -65,7 +65,7 @@
           <svg viewBox="0 0 24 24" fill="none" style="width:20px;height:20px;color:var(--amber)"><path d="M3 7l9-4 9 4-9 4-9-4zM3 7v10l9 4 9-4V7M12 11v10" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
           Our product range
         </h3>
-        <div class="mini-grid">
+        <div class="mini-grid" id="heroMini">
           <div class="mini">Steel Sheets</div>
           <div class="mini">Door Frames</div>
           <div class="mini">Hollow Sections</div>
@@ -85,15 +85,15 @@
   <div class="container">
     <div class="item">
       <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Official representative of <b>&nbsp;Steel &amp; Tube Industries (Uganda)</b>
+      <span data-bind="trust.item1">Official representative of</span>&nbsp;<b data-bind="trust.item1strong">Steel &amp; Tube Industries (Uganda)</b>
     </div>
     <div class="item">
       <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" stroke="currentColor" stroke-width="1.6"/></svg>
-      Importing from <b>&nbsp;China · Tanzania · Uganda · Rwanda</b>
+      <span data-bind="trust.item2">Importing from</span>&nbsp;<b data-bind="trust.item2strong">China · Tanzania · Uganda · Rwanda</b>
     </div>
     <div class="item">
       <svg viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-      Trusted by <b>&nbsp;2,000+ builders &amp; traders</b>
+      <span data-bind="trust.item3">Trusted by</span>&nbsp;<b data-bind="trust.item3strong">2,000+ builders &amp; traders</b>
     </div>
   </div>
 </div>
@@ -103,17 +103,19 @@
   <div class="container">
     <div class="about-grid reveal">
       <div>
-        <p class="eyebrow">About CLEM LTD</p>
-        <h2 style="font-size:clamp(28px,4vw,40px);margin:12px 0 18px">A decade of dependable steel supply in Rwanda.</h2>
-        <p>Founded in <strong>2015</strong> and based in <strong>Kigali</strong>, CLEM LTD has grown into one of the region's trusted names in steel. We supply a complete range of steel products to contractors, fabricators, hardware retailers and individual builders across the country.</p>
-        <p>By working directly with established manufacturers in <strong>China, Tanzania, Uganda and Rwanda</strong>, we keep quality consistent and pricing competitive — and we pass that reliability on to the <strong>2,000+ customers</strong> who count on us.</p>
-        <p>As the <strong>official representative of Steel and Tube Industries Ltd (Uganda)</strong>, we bring proven, industry-grade steel to the Rwandan market.</p>
+        <p class="eyebrow" data-bind="about.eyebrow">About CLEM LTD</p>
+        <h2 style="font-size:clamp(28px,4vw,40px);margin:12px 0 18px" data-bind="about.heading">A decade of dependable steel supply in Rwanda.</h2>
+        <div id="aboutParas">
+          <p>Founded in <strong>2015</strong> and based in <strong>Kigali</strong>, CLEM LTD has grown into one of the region's trusted names in steel. We supply a complete range of steel products to contractors, fabricators, hardware retailers and individual builders across the country.</p>
+          <p>By working directly with established manufacturers in <strong>China, Tanzania, Uganda and Rwanda</strong>, we keep quality consistent and pricing competitive — and we pass that reliability on to the <strong>2,000+ customers</strong> who count on us.</p>
+          <p>As the <strong>official representative of Steel and Tube Industries Ltd (Uganda)</strong>, we bring proven, industry-grade steel to the Rwandan market.</p>
+        </div>
         <a href="#proforma" class="btn btn-dark" style="margin-top:8px">Request a Proforma
           <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
       <div>
-        <div class="stat-cards">
+        <div class="stat-cards" id="aboutStats">
           <div class="stat-card accent"><div class="n">2015</div><div class="l">Year established</div></div>
           <div class="stat-card"><div class="n">2,000+</div><div class="l">Customers served</div></div>
           <div class="stat-card"><div class="n">10+</div><div class="l">Years in the market</div></div>
@@ -124,8 +126,8 @@
             <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <div>
-            <h3>Official Representative</h3>
-            <p>Authorised representative of <strong>Steel and Tube Industries Ltd — Uganda</strong> in Rwanda.</p>
+            <h3 data-bind="about.partnerTitle">Official Representative</h3>
+            <p data-html="about.partnerText">Authorised representative of <strong>Steel and Tube Industries Ltd — Uganda</strong> in Rwanda.</p>
           </div>
         </div>
       </div>
@@ -137,119 +139,27 @@
 <section class="pad soft" id="products">
   <div class="container">
     <div class="section-head reveal">
-      <p class="eyebrow">What we supply</p>
-      <h2>Our steel product range</h2>
-      <p>Quality steel for construction, fabrication and finishing. Found what you need? Request a proforma on any product and we'll respond within 24 hours.</p>
+      <p class="eyebrow" data-bind="products.eyebrow">What we supply</p>
+      <h2 data-bind="products.heading">Our steel product range</h2>
+      <p data-bind="products.intro">Quality steel for construction, fabrication and finishing. Found what you need? Request a proforma on any product and we'll respond within 24 hours.</p>
     </div>
 
-    <div class="product-grid">
-
-      <!-- Steel Sheets -->
-      <article class="product-card reveal">
-        <div class="product-media" data-img="assets/images/steel-sheets.jpg">
-          <span class="tag">Steel Sheets</span>
-          <svg viewBox="0 0 64 64" fill="none"><path d="M8 22l24-10 24 10-24 10L8 22z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M8 32l24 10 24-10M8 42l24 10 24-10" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="product-body">
-          <h3>Steel Sheets</h3>
-          <p>Flat-rolled steel sheets in a range of gauges for roofing, cladding and general fabrication.</p>
-          <a href="#proforma" class="req" data-product="Steel Sheets">Request Proforma
-            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </article>
-
-      <!-- Door Frames -->
-      <article class="product-card reveal">
-        <div class="product-media" data-img="assets/images/door-frames.jpg">
-          <span class="tag">Door Frames</span>
-          <svg viewBox="0 0 64 64" fill="none"><rect x="16" y="8" width="32" height="50" rx="2" stroke="currentColor" stroke-width="2.4"/><rect x="23" y="15" width="18" height="43" stroke="currentColor" stroke-width="2.4"/><circle cx="37" cy="37" r="1.6" fill="currentColor"/></svg>
-        </div>
-        <div class="product-body">
-          <h3>Door Frames</h3>
-          <p>Pressed steel door frames — durable, true-to-size and ready for on-site installation.</p>
-          <a href="#proforma" class="req" data-product="Door Frames">Request Proforma
-            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </article>
-
-      <!-- Hollow Sections -->
-      <article class="product-card reveal">
-        <div class="product-media" data-img="assets/images/hollow-sections.jpg">
-          <span class="tag">Hollow Sections</span>
-          <svg viewBox="0 0 64 64" fill="none"><path d="M14 24l8-8h28v28l-8 8H14V24z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M14 24h28v28M42 24l8-8M22 16v8" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="product-body">
-          <h3>Hollow Sections</h3>
-          <p>Square and rectangular tubing for structural framing, gates, trusses and general fabrication.</p>
-          <a href="#proforma" class="req" data-product="Hollow Sections">Request Proforma
-            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </article>
-
-      <!-- Steel Bars -->
-      <article class="product-card reveal">
-        <div class="product-media" data-img="assets/images/deformed-bars.jpg">
-          <span class="tag">Deformed Bars</span>
-          <svg viewBox="0 0 64 64" fill="none"><path d="M12 40c8 0 8-16 16-16s8 16 16 16 8-16 16-16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M12 48c8 0 8-16 16-16s8 16 16 16 8-16 16-16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" opacity=".55"/></svg>
-        </div>
-        <div class="product-body">
-          <h3>Steel Bars <span style="font-weight:400;color:var(--muted);font-size:14px">(Deformed)</span></h3>
-          <p>Ribbed reinforcement bars (rebar) for concrete structures, foundations and slabs.</p>
-          <a href="#proforma" class="req" data-product="Steel Bars (Deformed)">Request Proforma
-            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </article>
-
-      <!-- Bottle Profiles -->
-      <article class="product-card reveal">
-        <div class="product-media" data-img="assets/images/bottle-profiles.jpg">
-          <span class="tag">Bottle Profiles</span>
-          <svg viewBox="0 0 64 64" fill="none"><path d="M20 12h24v10l-7 6v24H27V28l-7-6V12z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M20 18h24" stroke="currentColor" stroke-width="2.4"/></svg>
-        </div>
-        <div class="product-body">
-          <h3>Bottle Profiles</h3>
-          <p>Specialised steel profiles used in window and door manufacturing and metal finishing.</p>
-          <a href="#proforma" class="req" data-product="Bottle Profiles">Request Proforma
-            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </article>
-
-      <!-- Rovers -->
-      <article class="product-card reveal">
-        <div class="product-media" data-img="assets/images/rovers.jpg">
-          <span class="tag">Rovers</span>
-          <svg viewBox="0 0 64 64" fill="none"><rect x="12" y="12" width="40" height="40" rx="2" stroke="currentColor" stroke-width="2.4"/><path d="M32 12v40M12 32h40" stroke="currentColor" stroke-width="2.4"/></svg>
-        </div>
-        <div class="product-body">
-          <h3>Rovers <span style="font-weight:400;color:var(--muted);font-size:14px">(Doors &amp; Windows)</span></h3>
-          <p>Steel sections engineered for fabricating doors and windows with clean, strong joints.</p>
-          <a href="#proforma" class="req" data-product="Rovers (Doors & Windows)">Request Proforma
-            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </article>
-
-      <!-- Metal Gutters -->
-      <article class="product-card reveal">
-        <div class="product-media" data-img="assets/images/metal-gutters.jpg">
-          <span class="tag">Metal Gutters</span>
-          <svg viewBox="0 0 64 64" fill="none"><path d="M12 18v22a8 8 0 008 8h24a8 8 0 008-8V18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M12 18h12M40 18h12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
-        </div>
-        <div class="product-body">
-          <h3>Metal Gutters</h3>
-          <p>Galvanized gutters for durable, leak-free rainwater drainage on homes and commercial roofs.</p>
-          <a href="#proforma" class="req" data-product="Metal Gutters">Request Proforma
-            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </article>
-
-      <!-- More -->
+    <div class="product-grid" id="productGrid">
+      <!-- Rendered from content.json → products.items by script.js.
+           The cards below are the no-JS / SEO fallback. -->
+      <article class="product-card reveal"><div class="product-media" style="background-image:url('assets/images/steel-sheets.jpg')"><span class="tag">Steel Sheets</span></div><div class="product-body"><h3>Steel Sheets</h3><p>Flat-rolled steel sheets in a range of gauges for roofing, cladding and general fabrication.</p><a href="#proforma" class="req" data-product="Steel Sheets">Request Proforma <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></article>
+      <article class="product-card reveal"><div class="product-media" style="background-image:url('assets/images/door-frames.jpg')"><span class="tag">Door Frames</span></div><div class="product-body"><h3>Door Frames</h3><p>Pressed steel door frames — durable, true-to-size and ready for on-site installation.</p><a href="#proforma" class="req" data-product="Door Frames">Request Proforma <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></article>
+      <article class="product-card reveal"><div class="product-media" style="background-image:url('assets/images/hollow-sections.jpg')"><span class="tag">Hollow Sections</span></div><div class="product-body"><h3>Hollow Sections</h3><p>Square and rectangular tubing for structural framing, gates, trusses and general fabrication.</p><a href="#proforma" class="req" data-product="Hollow Sections">Request Proforma <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></article>
+      <article class="product-card reveal"><div class="product-media" style="background-image:url('assets/images/deformed-bars.jpg')"><span class="tag">Deformed Bars</span></div><div class="product-body"><h3>Steel Bars (Deformed)</h3><p>Ribbed reinforcement bars (rebar) for concrete structures, foundations and slabs.</p><a href="#proforma" class="req" data-product="Steel Bars (Deformed)">Request Proforma <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></article>
+      <article class="product-card reveal"><div class="product-media" style="background-image:url('assets/images/bottle-profiles.jpg')"><span class="tag">Bottle Profiles</span></div><div class="product-body"><h3>Bottle Profiles</h3><p>Specialised steel profiles used in window and door manufacturing and metal finishing.</p><a href="#proforma" class="req" data-product="Bottle Profiles">Request Proforma <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></article>
+      <article class="product-card reveal"><div class="product-media" style="background-image:url('assets/images/rovers.jpg')"><span class="tag">Rovers</span></div><div class="product-body"><h3>Rovers (Doors &amp; Windows)</h3><p>Steel sections engineered for fabricating doors and windows with clean, strong joints.</p><a href="#proforma" class="req" data-product="Rovers (Doors & Windows)">Request Proforma <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></article>
+      <article class="product-card reveal"><div class="product-media" style="background-image:url('assets/images/metal-gutters.jpg')"><span class="tag">Metal Gutters</span></div><div class="product-body"><h3>Metal Gutters</h3><p>Galvanized gutters for durable, leak-free rainwater drainage on homes and commercial roofs.</p><a href="#proforma" class="req" data-product="Metal Gutters">Request Proforma <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></article>
       <article class="product-card reveal" style="background:var(--steel-700);border-color:var(--steel-700);justify-content:center;align-items:center;text-align:center;padding:30px;color:#fff">
         <svg viewBox="0 0 24 24" fill="none" style="width:46px;height:46px;color:var(--amber);margin-bottom:14px"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
         <h3 style="color:#fff;margin-bottom:8px">Looking for something else?</h3>
         <p style="color:#bcd0e6;margin-bottom:18px">We source a wide range of steel products on request.</p>
         <a href="#proforma" class="btn btn-primary btn-sm" data-product="Other / custom enquiry">Make an Enquiry</a>
       </article>
-
     </div>
   </div>
 </section>
@@ -258,11 +168,11 @@
 <section class="pad" id="sourcing">
   <div class="container">
     <div class="section-head reveal">
-      <p class="eyebrow">Where our steel comes from</p>
-      <h2>Sourced from trusted manufacturers</h2>
-      <p>We import directly from established steel producers across four countries — keeping quality consistent and supply reliable.</p>
+      <p class="eyebrow" data-bind="sourcing.eyebrow">Where our steel comes from</p>
+      <h2 data-bind="sourcing.heading">Sourced from trusted manufacturers</h2>
+      <p data-bind="sourcing.intro">We import directly from established steel producers across four countries — keeping quality consistent and supply reliable.</p>
     </div>
-    <div class="source-grid reveal">
+    <div class="source-grid reveal" id="sourceGrid">
       <div class="source"><div class="flag">🇨🇳</div><h4>China</h4><p>High-volume, industry-grade steel</p></div>
       <div class="source"><div class="flag">🇹🇿</div><h4>Tanzania</h4><p>Regional manufacturing partners</p></div>
       <div class="source"><div class="flag">🇺🇬</div><h4>Uganda</h4><p>Steel &amp; Tube Industries Ltd</p></div>
@@ -276,24 +186,22 @@
   <div class="container">
     <div class="proforma-grid">
       <div class="proforma-intro reveal">
-        <p class="eyebrow" style="color:var(--amber)">Request a proforma</p>
-        <h2>Tell us what you need — we'll send a quote.</h2>
-        <p>Fill in the form and our team will prepare a proforma invoice for you. No account needed — your request lands straight in our inbox.</p>
+        <p class="eyebrow" style="color:var(--amber)" data-bind="proforma.eyebrow">Request a proforma</p>
+        <h2 data-bind="proforma.heading">Tell us what you need — we'll send a quote.</h2>
+        <p data-bind="proforma.subtext">Fill in the form and our team will prepare a proforma invoice for you. No account needed — your request lands straight in our inbox.</p>
         <div class="assure">
-          <div class="a"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg> We reply within 24 hours</div>
-          <div class="a"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4zM4 7l8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg> info@clemltd.store</div>
-          <div class="a"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg> Genuine, quality-checked steel</div>
+          <div class="a"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg> <span data-bind="proforma.assurance1">We reply within 24 hours</span></div>
+          <div class="a"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4zM4 7l8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg> <span data-bind="contact.email">info@clemltd.store</span></div>
+          <div class="a"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg> <span data-bind="proforma.assurance3">Genuine, quality-checked steel</span></div>
         </div>
       </div>
 
       <div class="form-card reveal">
         <div class="form-status" id="formStatus"></div>
         <form id="proformaForm" action="https://api.web3forms.com/submit" method="POST">
-          <!-- Web3Forms config -->
           <input type="hidden" name="access_key" value="7b1255f3-904f-4c84-b692-91a759721364">
           <input type="hidden" name="subject" value="New Proforma Request — CLEM LTD website">
           <input type="hidden" name="from_name" value="CLEM LTD Website">
-          <!-- honeypot -->
           <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
 
           <div class="form-row">
@@ -364,31 +272,31 @@
 <section class="pad soft" id="contact">
   <div class="container">
     <div class="section-head reveal">
-      <p class="eyebrow">Get in touch</p>
-      <h2>Visit or contact us</h2>
-      <p>We're based in Kigali and ready to help. Reach out by email, phone or stop by.</p>
+      <p class="eyebrow" data-bind="contact.eyebrow">Get in touch</p>
+      <h2 data-bind="contact.heading">Visit or contact us</h2>
+      <p data-bind="contact.intro">We're based in Kigali and ready to help. Reach out by email, phone or stop by.</p>
     </div>
     <div class="contact-grid reveal">
       <div class="contact-list">
         <div class="contact-item">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-6.5 8-12a8 8 0 10-16 0c0 5.5 8 12 8 12z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6" stroke="currentColor" stroke-width="1.8"/></svg></div>
-          <div><h4>Location</h4><p>Kigali, Rwanda<br><span style="font-size:13px;color:var(--steel-500)">[ exact address to confirm ]</span></p></div>
+          <div><h4>Location</h4><p data-bind="contact.address">Kigali, Rwanda</p></div>
         </div>
         <div class="contact-item">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4zM4 7l8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
-          <div><h4>Email</h4><a href="mailto:info@clemltd.store">info@clemltd.store</a></div>
+          <div><h4>Email</h4><a id="emailLink" href="mailto:info@clemltd.store" data-bind="contact.email">info@clemltd.store</a></div>
         </div>
         <div class="contact-item">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h4l2 5-3 2a12 12 0 005 5l2-3 5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
-          <div><h4>Phone / WhatsApp</h4><p><a href="tel:+250782028888">+250 782 028 888</a> · <a href="https://wa.me/250782028888" target="_blank" rel="noopener">WhatsApp</a></p></div>
+          <div><h4>Phone / WhatsApp</h4><p><a id="phoneLink" href="tel:+250782028888"><span data-bind="contact.phoneDisplay">+250 782 028 888</span></a> · <a id="waLink" href="https://wa.me/250782028888" target="_blank" rel="noopener">WhatsApp</a></p></div>
         </div>
         <div class="contact-item">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-          <div><h4>Working hours</h4><p>Open 24/7</p></div>
+          <div><h4>Working hours</h4><p data-bind="contact.hours">Open 24/7</p></div>
         </div>
       </div>
       <div class="map">
-        <iframe title="CLEM LTD location — Kigali" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        <iframe id="mapFrame" title="CLEM LTD location — Kigali" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           src="https://www.google.com/maps?q=Kigali,Rwanda&output=embed"></iframe>
       </div>
     </div>
@@ -408,7 +316,7 @@
           </svg>
           CLEM&nbsp;LTD
         </a>
-        <p>Quality steel products supplied across Rwanda since 2015. Official representative of Steel &amp; Tube Industries Ltd (Uganda).</p>
+        <p data-bind="footer.tagline">Quality steel products supplied across Rwanda since 2015. Official representative of Steel &amp; Tube Industries Ltd (Uganda).</p>
       </div>
       <div>
         <h5>Explore</h5>
@@ -436,7 +344,7 @@
     </div>
     <div class="foot-bottom">
       <span>© <span id="year"></span> CLEM LTD. All rights reserved.</span>
-      <span>Kigali, Rwanda · info@clemltd.store</span>
+      <span><span data-bind="contact.address">Kigali, Rwanda</span> · <span data-bind="contact.email">info@clemltd.store</span></span>
     </div>
   </div>
 </footer>

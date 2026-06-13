@@ -1,0 +1,127 @@
+{
+  "site": {
+    "metaTitle": "CLEM LTD — Quality Steel Products in Rwanda",
+    "metaDescription": "Since 2015, CLEM LTD supplies quality steel products across Rwanda — steel sheets, door frames, hollow sections, deformed bars, profiles, rovers and gutters. Official representative of Steel & Tube Industries (Uganda). Request a proforma today."
+  },
+  "hero": {
+    "eyebrow": "Steel suppliers · Kigali, Rwanda · since 2015",
+    "headingLead": "Quality steel, ",
+    "headingHighlight": "sourced and delivered",
+    "headingTail": " across Rwanda.",
+    "subtext": "For over a decade, CLEM LTD has supplied builders, fabricators and traders with dependable steel products — backed by trusted manufacturers across China, Tanzania, Uganda and Rwanda.",
+    "primaryCta": "Request a Proforma",
+    "secondaryCta": "View Products",
+    "badges": [
+      { "number": "2015", "label": "Established in Kigali" },
+      { "number": "2,000+", "label": "Customers served" },
+      { "number": "4", "label": "Sourcing countries" }
+    ]
+  },
+  "trust": {
+    "item1": "Official representative of",
+    "item1strong": "Steel & Tube Industries (Uganda)",
+    "item2": "Importing from",
+    "item2strong": "China · Tanzania · Uganda · Rwanda",
+    "item3": "Trusted by",
+    "item3strong": "2,000+ builders & traders"
+  },
+  "about": {
+    "eyebrow": "About CLEM LTD",
+    "heading": "A decade of dependable steel supply in Rwanda.",
+    "paragraphs": [
+      "Founded in <strong>2015</strong> and based in <strong>Kigali</strong>, CLEM LTD has grown into one of the region's trusted names in steel. We supply a complete range of steel products to contractors, fabricators, hardware retailers and individual builders across the country.",
+      "By working directly with established manufacturers in <strong>China, Tanzania, Uganda and Rwanda</strong>, we keep quality consistent and pricing competitive — and we pass that reliability on to the <strong>2,000+ customers</strong> who count on us.",
+      "As the <strong>official representative of Steel and Tube Industries Ltd (Uganda)</strong>, we bring proven, industry-grade steel to the Rwandan market."
+    ],
+    "stats": [
+      { "number": "2015", "label": "Year established", "accent": true },
+      { "number": "2,000+", "label": "Customers served", "accent": false },
+      { "number": "10+", "label": "Years in the market", "accent": false },
+      { "number": "4", "label": "Countries we source from", "accent": false }
+    ],
+    "partnerTitle": "Official Representative",
+    "partnerText": "Authorised representative of <strong>Steel and Tube Industries Ltd — Uganda</strong> in Rwanda."
+  },
+  "products": {
+    "eyebrow": "What we supply",
+    "heading": "Our steel product range",
+    "intro": "Quality steel for construction, fabrication and finishing. Found what you need? Request a proforma on any product and we'll respond within 24 hours.",
+    "items": [
+      {
+        "name": "Steel Sheets",
+        "tag": "Steel Sheets",
+        "description": "Flat-rolled steel sheets in a range of gauges for roofing, cladding and general fabrication.",
+        "image": "assets/images/steel-sheets.jpg"
+      },
+      {
+        "name": "Door Frames",
+        "tag": "Door Frames",
+        "description": "Pressed steel door frames — durable, true-to-size and ready for on-site installation.",
+        "image": "assets/images/door-frames.jpg"
+      },
+      {
+        "name": "Hollow Sections",
+        "tag": "Hollow Sections",
+        "description": "Square and rectangular tubing for structural framing, gates, trusses and general fabrication.",
+        "image": "assets/images/hollow-sections.jpg"
+      },
+      {
+        "name": "Steel Bars (Deformed)",
+        "tag": "Deformed Bars",
+        "description": "Ribbed reinforcement bars (rebar) for concrete structures, foundations and slabs.",
+        "image": "assets/images/deformed-bars.jpg"
+      },
+      {
+        "name": "Bottle Profiles",
+        "tag": "Bottle Profiles",
+        "description": "Specialised steel profiles used in window and door manufacturing and metal finishing.",
+        "image": "assets/images/bottle-profiles.jpg"
+      },
+      {
+        "name": "Rovers (Doors & Windows)",
+        "tag": "Rovers",
+        "description": "Steel sections engineered for fabricating doors and windows with clean, strong joints.",
+        "image": "assets/images/rovers.jpg"
+      },
+      {
+        "name": "Metal Gutters",
+        "tag": "Metal Gutters",
+        "description": "Galvanized gutters for durable, leak-free rainwater drainage on homes and commercial roofs.",
+        "image": "assets/images/metal-gutters.jpg"
+      }
+    ]
+  },
+  "sourcing": {
+    "eyebrow": "Where our steel comes from",
+    "heading": "Sourced from trusted manufacturers",
+    "intro": "We import directly from established steel producers across four countries — keeping quality consistent and supply reliable.",
+    "items": [
+      { "flag": "🇨🇳", "name": "China", "note": "High-volume, industry-grade steel" },
+      { "flag": "🇹🇿", "name": "Tanzania", "note": "Regional manufacturing partners" },
+      { "flag": "🇺🇬", "name": "Uganda", "note": "Steel & Tube Industries Ltd" },
+      { "flag": "🇷🇼", "name": "Rwanda", "note": "Local supply & fast delivery" }
+    ]
+  },
+  "proforma": {
+    "eyebrow": "Request a proforma",
+    "heading": "Tell us what you need — we'll send a quote.",
+    "subtext": "Fill in the form and our team will prepare a proforma invoice for you. No account needed — your request lands straight in our inbox.",
+    "assurance1": "We reply within 24 hours",
+    "assurance3": "Genuine, quality-checked steel"
+  },
+  "contact": {
+    "eyebrow": "Get in touch",
+    "heading": "Visit or contact us",
+    "intro": "We're based in Kigali and ready to help. Reach out by email, phone or stop by.",
+    "address": "Kigali, Rwanda",
+    "email": "info@clemltd.store",
+    "phoneDisplay": "+250 782 028 888",
+    "phoneTel": "+250782028888",
+    "whatsapp": "250782028888",
+    "hours": "Open 24/7",
+    "mapQuery": "Kigali,Rwanda"
+  },
+  "footer": {
+    "tagline": "Quality steel products supplied across Rwanda since 2015. Official representative of Steel & Tube Industries Ltd (Uganda)."
+  }
+}

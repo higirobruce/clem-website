@@ -7,17 +7,42 @@ Single-page site: Home · About · Products · Sourcing · Request Proforma · C
 
 ```
 clemltd-website/
-├── index.html          # the whole site
+├── index.html          # page structure (text baked in as a fallback)
+├── content.json        # ← all editable content lives here
+├── .pages.yml          # Pages CMS schema (the editing forms)
 ├── styles.css          # styles (brand tokens at top of file)
-├── script.js           # nav, product pre-select, photo swap, form submit
+├── script.js           # loads content.json + nav, form, etc.
 ├── wireframes.html     # low-fi brainstorm wireframes (reference only)
 ├── assets/
 │   ├── favicon.svg
-│   └── images/         # ← drop real product photos here (see below)
+│   └── images/         # product photos (uploaded via the CMS or by hand)
 └── README.md
 ```
 
 Open `index.html` in a browser to preview. No build step.
+
+---
+
+## ✏️ Editing the website content (for CLEM LTD)
+
+All text, products, photos and contact details are editable through a free visual
+editor — **no code needed**. Edits save straight to the site and go live automatically.
+
+### One-time setup
+1. Create a free **GitHub account** and ask the site owner to give it access to the
+   `higirobruce/clem-website` repository.
+2. Go to **[app.pagescms.org](https://app.pagescms.org)** and sign in with GitHub.
+3. Open the **clem-website** project. You'll see a friendly form titled *"Website content"*.
+
+### Editing
+- Change any text (hero, about, products, contact, etc.), then click **Save**.
+- **Products:** add, remove or reorder items; edit names/descriptions; **upload a photo**
+  right in the form.
+- **Contact:** update phone, address, working hours, email, map location.
+- After saving, the site rebuilds and the change is live in ~1 minute.
+
+> Behind the scenes, the editor updates `content.json` in GitHub, which triggers a Vercel
+> redeploy. Developers can also edit `content.json` directly.
 
 ---
 
