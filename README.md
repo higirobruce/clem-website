@@ -72,10 +72,10 @@ Photos can come from your own stock or the Steel & Tube Industries catalogue.
 ## 3. Details to confirm (placeholders in the site)
 
 - **Physical address** — Contact section currently says "Kigali, Rwanda [exact address to confirm]".
-- **Phone / WhatsApp number** — placeholder `+250 …`.
-- **Working hours** — placeholder "Mon–Sat".
 - **Google Map** — currently centred on Kigali; replace the `<iframe>` `src` with the exact
   location embed (Google Maps → Share → Embed a map).
+
+Confirmed: phone/WhatsApp **+250 782 028 888**, working hours **24/7**.
 
 ---
 
