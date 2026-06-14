@@ -8,10 +8,12 @@ Single-page site: Home · About · Products · Sourcing · Request Proforma · C
 ```
 clemltd-website/
 ├── index.html          # page structure (text baked in as a fallback)
-├── content.json        # ← all editable content lives here
-├── .pages.yml          # Pages CMS schema (the editing forms)
+├── content/site.json   # ← all editable content lives here
+├── tina/config.ts      # TinaCMS schema (the editing forms)
 ├── styles.css          # styles (brand tokens at top of file)
-├── script.js           # loads content.json + nav, form, etc.
+├── script.js           # loads content/site.json + nav, form, etc.
+├── package.json        # TinaCMS tooling
+├── vercel.json         # deploy config (static now; flip to Tina build later)
 ├── wireframes.html     # low-fi brainstorm wireframes (reference only)
 ├── assets/
 │   ├── favicon.svg
@@ -19,30 +21,57 @@ clemltd-website/
 └── README.md
 ```
 
-Open `index.html` in a browser to preview. No build step.
+Open `index.html` in a browser to preview. The site itself needs **no build step** —
+it reads `content/site.json` at runtime.
 
 ---
 
 ## ✏️ Editing the website content (for CLEM LTD)
 
-All text, products, photos and contact details are editable through a free visual
-editor — **no code needed**. Edits save straight to the site and go live automatically.
+Content is edited with **[TinaCMS](https://tina.io)** through a visual editor at
+**`clemltd.store/admin`**. Editors log in by **email** (invited via Tina Cloud) and
+**do not need a GitHub account**. Saving publishes the change automatically.
 
-### One-time setup
-1. Create a free **GitHub account** and ask the site owner to give it access to the
-   `higirobruce/clem-website` repository.
-2. Go to **[app.pagescms.org](https://app.pagescms.org)** and sign in with GitHub.
-3. Open the **clem-website** project. You'll see a friendly form titled *"Website content"*.
+### A) One-time activation (developer / site owner — ~15 min)
 
-### Editing
-- Change any text (hero, about, products, contact, etc.), then click **Save**.
-- **Products:** add, remove or reorder items; edit names/descriptions; **upload a photo**
-  right in the form.
-- **Contact:** update phone, address, working hours, email, map location.
-- After saving, the site rebuilds and the change is live in ~1 minute.
+1. **Create a Tina Cloud project** at **[app.tina.io](https://app.tina.io)**:
+   - Sign in, *Create Project* → connect the GitHub repo `higirobruce/clem-website`,
+     branch `main`.
+   - Copy the **Client ID** and create a **Read-Only Token**.
+2. **Add the two values to Vercel** → Project → *Settings → Environment Variables*:
+   - `NEXT_PUBLIC_TINA_CLIENT_ID` = your Client ID
+   - `TINA_TOKEN` = your Read-Only Token
+3. **Turn on the Tina build** in `vercel.json` (replace the placeholder commands):
+   ```json
+   {
+     "installCommand": "npm install",
+     "buildCommand": "npm run tina:build",
+     "outputDirectory": "."
+   }
+   ```
+   Commit & push. Vercel builds the admin to `/admin` on deploy.
+4. **Invite editors** in Tina Cloud → *Collaborators* → add CLEM staff by **email**.
 
-> Behind the scenes, the editor updates `content.json` in GitHub, which triggers a Vercel
-> redeploy. Developers can also edit `content.json` directly.
+> Until step 3 is done, the site keeps deploying as a normal static site (the editor
+> just isn't available yet). Nothing breaks in the meantime.
+
+### B) Editing (CLEM LTD staff — no GitHub needed)
+
+1. Go to **`clemltd.store/admin`** and log in with the email you were invited with.
+2. Open **Website content**. Edit any text — hero, about, **products** (add / remove /
+   reorder, edit text, **upload photos**), sourcing, proforma copy, and **contact**
+   (phone, address, hours, email, map).
+3. Click **Save**. The site republishes automatically in ~1 minute.
+
+### Local editing / preview (developer)
+
+```bash
+npm install
+npm run tina:dev      # opens the site + Tina editor locally (no Tina Cloud needed)
+```
+
+> Behind the scenes, Tina commits `content/site.json` (and uploaded photos) to GitHub,
+> which triggers a Vercel redeploy. Developers can also edit `content/site.json` directly.
 
 ---
 

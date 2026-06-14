@@ -2,3 +2,7 @@
 *.log
 node_modules/
 .vercel
+
+# TinaCMS build output (generated)
+admin/
+tina/__generated__/

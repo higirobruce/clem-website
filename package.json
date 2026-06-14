@@ -1,0 +1,16 @@
+{
+  "name": "clem-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CLEM LTD marketing website (static) with TinaCMS editing",
+  "scripts": {
+    "tina:dev": "tinacms dev -c \"npx -y serve . -l 3000\"",
+    "tina:build": "tinacms build"
+  },
+  "dependencies": {
+    "tinacms": "^2.7.0"
+  },
+  "devDependencies": {
+    "@tinacms/cli": "^1.9.0"
+  }
+}

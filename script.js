@@ -1,8 +1,8 @@
 /* ===========================================================
    CLEM LTD — site behaviour
-   Content is loaded from content.json (editable via Pages CMS).
+   Content is loaded from content/site.json (editable via TinaCMS).
    The HTML ships with the same text baked in as a no-JS / SEO
-   fallback; this script overrides it from content.json.
+   fallback; this script overrides it from content/site.json.
    =========================================================== */
 (function () {
   "use strict";
@@ -217,7 +217,7 @@
 
   /* ---- boot: load content, then wire behaviours ---- */
   function boot() {
-    fetch("content.json", { cache: "no-cache" })
+    fetch("content/site.json", { cache: "no-cache" })
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (c) { try { applyContent(c); } catch (e) { /* keep static fallback */ } })
       .catch(function () { /* offline / missing file → static fallback stays */ })
