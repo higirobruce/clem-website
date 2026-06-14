@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "npm install",
-  "buildCommand": "npm run tina:build",
+  "buildCommand": "echo 'Static deploy — re-enable Tina build (npm run tina:build) once Tina Cloud has indexed the main branch. See README.'",
+  "installCommand": "echo 'No install needed for the static site.'",
   "outputDirectory": "."
 }
