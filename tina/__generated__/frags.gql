@@ -1,0 +1,96 @@
+fragment ContentParts on Content {
+  __typename
+  site {
+    __typename
+    metaTitle
+    metaDescription
+  }
+  hero {
+    __typename
+    eyebrow
+    headingLead
+    headingHighlight
+    headingTail
+    subtext
+    primaryCta
+    secondaryCta
+    badges {
+      __typename
+      number
+      label
+    }
+  }
+  trust {
+    __typename
+    item1
+    item1strong
+    item2
+    item2strong
+    item3
+    item3strong
+  }
+  about {
+    __typename
+    eyebrow
+    heading
+    paragraphs
+    stats {
+      __typename
+      number
+      label
+      accent
+    }
+    partnerTitle
+    partnerText
+  }
+  products {
+    __typename
+    eyebrow
+    heading
+    intro
+    items {
+      __typename
+      name
+      tag
+      description
+      image
+    }
+  }
+  sourcing {
+    __typename
+    eyebrow
+    heading
+    intro
+    items {
+      __typename
+      flag
+      name
+      note
+    }
+  }
+  proforma {
+    __typename
+    eyebrow
+    heading
+    subtext
+    assurance1
+    assurance3
+  }
+  contact {
+    __typename
+    eyebrow
+    heading
+    intro
+    address
+    email
+    phoneDisplay
+    phoneTel
+    whatsapp
+    hours
+    mapQuery
+  }
+  footer {
+    __typename
+    tagline
+  }
+}

@@ -3,6 +3,12 @@
 node_modules/
 .vercel
 
-# TinaCMS build output (generated)
+# Secrets — never commit
+.env
+.env.*
+
+# TinaCMS admin SPA (rebuilt by Vercel on each deploy)
 admin/
-tina/__generated__/
+
+# Note: tina/__generated__/ IS committed on purpose — Tina Cloud reads the
+# compiled schema from it to configure the project and index the branch.
